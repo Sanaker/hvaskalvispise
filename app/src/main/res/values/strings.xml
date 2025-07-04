@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hva Skal Vi Spise?</string>
+    <string name="no_dish_selected">Trykk for å velge middag!</string>
+    <string name="choose_for_me">Velg for meg!</string>
+    <string name="enter_new_dish_hint">Skriv inn en ny rett her</string>
+    <string name="add_dish_button">Legg til</string>
+    <string name="your_dishes_title">Dine retter:</string>
+    <string name="delete_dish_confirm_title">Slett rett?</string>
+    <string name="delete_dish_confirm_message">Er du sikker på at du vil slette %s?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nei</string>
+    <string name="dish_added_message">Rett lagt til!</string>
+    <string name="dish_deleted_message">Rett slettet!</string>
+    <string name="delete_dish_button_description">Slett rett</string>
+</resources>
