@@ -3,12 +3,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose) // This is where it's applied to the app module
+    // REMOVED: alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.sanaker.hvaskalvispise"
-    compileSdk = 34 // Use 34, a stable target for now
+    compileSdk = 34 // A common stable target SDK
 
     defaultConfig {
         applicationId = "com.sanaker.hvaskalvispise"
@@ -30,57 +30,37 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8 // Standard for Android projects
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "1.8" // Matches Java 1.8
     }
-    buildFeatures {
-        compose = true // CRITICAL: Enable Compose features
-    }
-    composeOptions {
-        // CRITICAL: Get Compose Compiler version from libs.versions.toml
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
-    }
+    // REMOVED: buildFeatures { compose = true }
+    // REMOVED: composeOptions { kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get() }
 }
 
 dependencies {
-    // Core AndroidX Libraries for basic app setup
+    // Core AndroidX Libraries for View System
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.android.material)
-    // Removed constraintlayout and recyclerview if not explicitly used with Views
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.recyclerview)
 
-    // Lifecycle for Compose (ViewModel, LiveData)
+    // Lifecycle (for View-based apps)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    // Activity Compose (for setting up Compose content in MainActivity)
-    implementation(libs.androidx.activity.compose)
-
-    // Compose BOM (Bill of Materials) for consistent Compose versions
-    implementation(platform(libs.androidx.compose.bom))
-
-    // Specific Compose libraries (versions managed by the BOM)
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-
-    // Gson (keep if you need it for data handling)
+    // Gson
     implementation(libs.gson)
 
-    // For @Preview annotations in Android Studio (debug build only)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-
-    // For unit tests
+    // Testing dependencies
     testImplementation(libs.junit)
-
-    // For Android instrumented tests (Compose UI testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom)) // Same BOM version for tests
-    androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    // REMOVED ALL COMPOSE-RELATED DEPENDENCIES
+    // (e.g., platform(libs.androidx.compose.bom), androidx.ui, androidx.activity.compose, etc.)
 }

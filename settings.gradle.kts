@@ -5,7 +5,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        // CRITICAL: Explicitly add JetBrains Space Maven for Kotlin plugins
+        // Keep this explicitly, as other Kotlin plugins/libraries might still need it
         maven { url = uri("https://maven.pkg.jetbrains.space/public/libraries/maven") }
     }
 }
@@ -14,9 +14,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        // Add this again here for general dependencies if needed, though pluginManagement is key
+        // Keep this explicitly, as other Kotlin libraries might still need it
         maven { url = uri("https://maven.pkg.jetbrains.space/public/libraries/maven") }
     }
 }
+
 rootProject.name = "hvaskalvispise"
 include(":app")
