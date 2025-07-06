@@ -17,6 +17,7 @@ import com.sanaker.hvaskalvispise.ui.viewmodel.MainViewModelFactory // We will c
 import kotlinx.coroutines.Dispatchers // For specifying coroutine dispatcher (e.g., IO thread)
 import kotlinx.coroutines.launch // To launch coroutines
 import kotlinx.coroutines.withContext // To switch context back to Main thread
+import android.content.Intent
 // Removed unnecessary Random import, as ViewModel handles random choice
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val buttonDishList = findViewById<Button>(R.id.buttonDishList)
+        buttonDishList.setOnClickListener {
+            val intent = Intent(this, DishListActivity::class.java)
+            startActivity(intent)
+        }
 
         // Initialize views from your layout
         selectedDishTextView = findViewById(R.id.selectedDishTextView)
