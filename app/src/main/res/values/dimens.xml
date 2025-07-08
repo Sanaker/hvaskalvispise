@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="dialog_margin">16dp</dimen>
+    <dimen name="dialog_margin_half">8dp</dimen> <!-- Added for the example in DishListActivity -->
+</resources>

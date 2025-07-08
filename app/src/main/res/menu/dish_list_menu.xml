@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_clear_all_dishes"
+        android:title="@string/menu_clear_all_dishes"
+        android:icon="@drawable/ic_delete_sweep"
+        app:showAsAction="ifRoom" />
+    <!-- "ifRoom" betyr at den vises på action bar hvis det er plass, ellers i overflow-menyen (tre prikker) -->
+    <!-- For å kun vise i overflow: app:showAsAction="never" -->
+</menu>

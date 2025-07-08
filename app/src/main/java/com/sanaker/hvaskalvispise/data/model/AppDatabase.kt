@@ -1,37 +1,40 @@
-package com.sanaker.hvaskalvispise.data.model // Adjust package name as needed
+package com.sanaker.hvaskalvispise.data.model
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase // Import for callback
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
-// Define the database: entities it contains and its version.
-// version should be incremented if you change the database schema.
-@Database(entities = [Dish::class], version = 1, exportSchema = false)
+@Database(entities = [Dish::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    // Abstract method to get the DAO for Dish operations
     abstract fun dishDao(): DishDao
 
     companion object {
-        @Volatile // Makes the instance immediately visible to other threads
+        @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        // Singleton pattern to get the database instance
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE dishes ADD COLUMN category TEXT")
+                db.execSQL("ALTER TABLE dishes ADD COLUMN ingredients TEXT")
+                db.execSQL("ALTER TABLE dishes ADD COLUMN instructions TEXT")
+                db.execSQL("ALTER TABLE dishes ADD COLUMN isFavorite INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("ALTER TABLE dishes ADD COLUMN creationDate INTEGER NOT NULL DEFAULT ${System.currentTimeMillis()}")
+            }
+        }
+
         fun getDatabase(context: Context): AppDatabase {
-            return INSTANCE ?: synchronized(this) { // Ensures only one thread creates the DB
+            return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext, // Use application context to prevent memory leaks
+                    context.applicationContext,
                     AppDatabase::class.java,
-                    "dish_database" // The name of your database file
+                    "dish_database"
                 )
-                    // If you're building a real app, you might want to remove allowMainThreadQueries().
-                    // It's here for initial simplicity but can cause ANRs in production.
-                    // Instead, use coroutines (which we will).
-                    // .allowMainThreadQueries()
-                    // Add callback for initial data if needed, or migration strategies
-                    // .addCallback(AppDatabaseCallback(scope)) // Will add this if needed later
+                    .fallbackToDestructiveMigration()
+                    .addMigrations(MIGRATION_1_2)
                     .build()
                 INSTANCE = instance
                 instance

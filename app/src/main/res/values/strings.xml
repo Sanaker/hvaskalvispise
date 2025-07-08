@@ -1,16 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Hva Skal Vi Spise?</string>
-    <string name="no_dish_selected">Trykk for å velge middag!</string>
-    <string name="choose_for_me">Velg for meg!</string>
-    <string name="enter_new_dish_hint">Skriv inn en ny rett her</string>
-    <string name="add_dish_button">Legg til</string>
-    <string name="your_dishes_title">Dine retter:</string>
-    <string name="delete_dish_confirm_title">Slett rett?</string>
-    <string name="delete_dish_confirm_message">Er du sikker på at du vil slette %s?</string>
-    <string name="yes">Ja</string>
-    <string name="no">Nei</string>
-    <string name="dish_added_message">Rett lagt til!</string>
-    <string name="dish_deleted_message">Rett slettet!</string>
-    <string name="delete_dish_button_description">Slett rett</string>
+    <string name="app_name">Hva Skal Vi Spise</string>
+
+    <!-- For MainActivity -->
+    <string name="selected_dish_default_text">Ingen matrett valgt</string>
+    <string name="button_choose_random_dish">Velg en tilfeldig matrett</string>
+    <string name="hint_add_dish_default">Legg til en matrett</string>
+    <string name="hint_add_your_first_dish">Legg til din første matrett her!</string>
+    <string name="button_add_dish">Legg til</string>
+    <string name="button_view_dish_list">Matliste</string>
+
+    <string name="message_add_some_dishes_first">Legg til noen matretter først!</string>
+    <string name="message_no_dish_selected_try_choosing">Ingen matrett valgt. Prøv å velge en!</string>
+
+    <string name="toast_dish_added_successfully">Matrett lagt til!</string>
+    <string name="toast_dish_already_exists">Denne matretten finnes allerede!</string>
+    <string name="toast_please_enter_dish_name">Vennligst skriv inn et navn på matretten</string>
+
+    <!-- For DishListActivity -->
+    <string name="title_activity_dish_list">Matliste</string>
+    <string name="empty_dish_list_message">Ingen matretter enda!\nLegg til noen fra hovedskjermen.</string>
+    <string name="dialog_title_delete_dish">Slett Matrett</string>
+    <string name="dialog_message_delete_dish">Er du sikker på at du vil slette \"%1$s\"?</string> <!-- %1$s er for matrettnavnet -->
+    <string name="dialog_button_delete">Slett</string>
+    <string name="dialog_button_cancel">Avbryt</string>
+    <string name="dialog_title_edit_dish">Rediger Matrettnavn</string>
+    <string name="dialog_button_save">Lagre</string>
+    <string name="toast_dish_updated">Matrett oppdatert</string>
+    <string name="toast_name_cannot_be_empty">Navn kan ikke være tomt</string>
+
+    <!-- Streng for Sletteknappens Content Description (VIKTIG FOR Å FIKSE BYGGEFEIL) -->
+    <string name="delete_dish">Slett matrett</string>
+    <!-- ... andre strenger ... -->
+    <string name="dish_deleted_snackbar">Matrett \"%1$s\" slettet</string>
+    <string name="undo_snackbar">ANGRE</string>
+    <string name="menu_clear_all_dishes">Tøm listen</string>
+    <string name="dialog_title_clear_all_dishes">Tøm hele listen?</string>
+    <string name="dialog_message_clear_all_dishes">Er du sikker på at du vil slette alle matretter?
+        Denne handlingen kan ikke angres.
+    </string>
+    <string name="action_delete_all">Slett alle</string>
+    <string name="action_cancel">Avbryt</string>
+<!-- I res/values/strings.xml -->
+    <string name="edit_dish_button_description">Rediger matrett</string>
+    <string name="delete_dish_button_description">Slett matrett</string>
+    <string name="category_not_specified">Kategori: Ikke spesifisert</string>
+    <string name="category_prefix">Kategori: %1$s</string>
+    <string name="ingredients_not_specified">Ingredienser: Ikke spesifisert</string>
+    <string name="ingredients_prefix">Ingredienser: %1$s</string>
+
+
+    <!-- <string name="message_no_dish_selected_try_choosing">Ingen matrett valgt. Prøv å velge en!
+    </string> -->
+
+    <!-- <string name="hint_add_dish_default">Legg til ny matrett...</string> -->
 </resources>
+
