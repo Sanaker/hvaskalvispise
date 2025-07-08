@@ -3,103 +3,102 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivityLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sanaker.hvaskalvispise.ui.MainActivity">
 
-    <TextView
-        android:id="@+id/selectedDishTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-    android:text="Ingen matrett valgt"
-    android:textSize="24sp"
-    android:textAlignment="center"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/chooseDishButton"
-    app:layout_constraintVertical_bias="0.4"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"/>
+<TextView
+android:id="@+id/selectedDishTextView"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginTop="32dp"
+android:layout_marginStart="16dp"
+android:layout_marginEnd="16dp"
+android:text="@string/message_no_dish_selected_try_choosing"
+android:textSize="24sp"
+android:textAlignment="center"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+tools:text="Navn på Matrett Her"/>
 
-    <Button
-        android:id="@+id/chooseDishButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Velg en tilfeldig matrett"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectedDishTextView" />
-
-    <!-- NYTT: Container for detaljer om valgt tilfeldig rett -->
-    <LinearLayout
-        android:id="@+id/randomDishDetailContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="16dp"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-    app:layout_constraintTop_toBottomOf="@id/chooseDishButton"
+    <!-- Container for detaljer om den valgte retten MED CHIPS -->
+<LinearLayout
+android:id="@+id/randomDishDetailContainer"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:gravity="center_horizontal"
+android:padding="16dp"
+android:layout_marginTop="16dp"
+android:visibility="gone"
+    app:layout_constraintTop_toBottomOf="@id/selectedDishTextView"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    tools:visibility="visible"> <!-- For forhåndsvisning i layout editor -->
+    tools:visibility="visible">
 
-    <TextView
-        android:id="@+id/randomDishCategoryTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        tools:text="Kategori: Middag" />
+<com.google.android.material.chip.Chip
+android:id="@+id/chipCategory"
+style="@style/Widget.MaterialComponents.Chip.Entry"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginBottom="8dp"
+app:chipIcon="@drawable/ic_category_24"
+tools:text="Kategori: Forrett" />
 
-    <TextView
-        android:id="@+id/randomDishIngredientsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        tools:text="Ingredienser: Tomat, ost, skinke, ananas, champignon, løk" />
-</LinearLayout>
+<TextView
+android:id="@+id/labelIngredients"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="8dp"
+android:text="@string/ingredients_label"
+android:textAppearance="?attr/textAppearanceLabelLarge"
+tools:text="Ingredienser:" />
 
+<com.google.android.material.chip.ChipGroup
+android:id="@+id/chipGroupIngredients"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="4dp"
+app:chipSpacingHorizontal="8dp"
+app:chipSpacingVertical="4dp"/>
+    </LinearLayout>
 
-<EditText
-android:id="@+id/newDishEditText"
+<Button
+android:id="@+id/chooseDishButton"
 android:layout_width="0dp"
 android:layout_height="wrap_content"
 android:layout_marginStart="16dp"
-android:layout_marginTop="24dp"
-    android:layout_marginEnd="8dp"
-    android:hint="Legg til en matrett (navn)"
-    android:inputType="text"
-    app:layout_constraintEnd_toStartOf="@id/addDishButton"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/randomDishDetailContainer" /> <!-- Nå under detaljcontainer -->
-
-<Button
-android:id="@+id/addDishButton"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
 android:layout_marginEnd="16dp"
-android:text="Legg til"
-app:layout_constraintBottom_toBottomOf="@id/newDishEditText"
+android:layout_marginTop="24dp"
+android:text="@string/button_choose_dish"
 app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintTop_toTopOf="@id/newDishEditText" />
-
-    <!-- Kommentar om RecyclerView er irrelevant for denne layouten -->
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/randomDishDetailContainer" />
 
 <Button
 android:id="@+id/buttonDishList"
-android:layout_width="wrap_content"
+android:layout_width="0dp"
 android:layout_height="wrap_content"
-android:layout_marginBottom="16dp"
-android:text="Mat liste"
-app:layout_constraintBottom_toBottomOf="parent"
+android:layout_marginStart="16dp"
+android:layout_marginEnd="16dp"
+android:layout_marginTop="8dp"
+android:text="@string/button_view_dish_list"
+app:layout_constraintTop_toBottomOf="@id/chooseDishButton"
 app:layout_constraintEnd_toEndOf="parent"
 app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Ny FloatingActionButton for å legge til rett -->
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+android:id="@+id/fabAddDish"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_margin="16dp"
+android:src="@drawable/ic_add_24"
+android:contentDescription="@string/fab_content_description_add_dish"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-   
+

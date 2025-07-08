@@ -47,11 +47,48 @@
     <string name="category_prefix">Kategori: %1$s</string>
     <string name="ingredients_not_specified">Ingredienser: Ikke spesifisert</string>
     <string name="ingredients_prefix">Ingredienser: %1$s</string>
+    <string name="category_placeholder">Kategori</string>
+    <!-- ... andre strenger du måtte ha ... -->
+
+    <!-- MANGLENDE STRENGER - LEGG TIL DISSE: -->
+    <string name="button_choose_dish">Velg en tilfeldig matrett</string>
+    <string name="ingredients_label">Ingredienser:</string>
+    <string name="hint_dish_name">Navn på matrett</string>
+    <string name="hint_dish_category">Kategori (f.eks. Middag)</string>
+    <string name="header_ingredients">Ingredienser</string>
+    <string name="hint_new_ingredient">Ny ingrediens</string>
+    <string name="button_add_ingredient_description">Legg til ingrediens</string>
+    <string name="button_save_dish">Lagre matrett</string>
+    <string name="button_cancel">Avbryt</string>
+    <string name="toast_ingredient_added">\'%1$s\' er allerede lagt til</string>
+    <string name="toast_enter_ingredient">Skriv inn en ingrediens</string>
+    <string name="error_dish_name_required">Navn på matrett må fylles ut</string>
+    <string name="title_activity_add_dish">Legg til ny matrett</string>
+    <string name="fab_content_description_add_dish">Legg til ny matrett</string>
 
 
     <!-- <string name="message_no_dish_selected_try_choosing">Ingen matrett valgt. Prøv å velge en!
     </string> -->
 
     <!-- <string name="hint_add_dish_default">Legg til ny matrett...</string> -->
+
+    <!-- <string name="app_name">HvaSkalViSpise</string> -->
+
+
+    <!-- Strenger du sannsynligvis allerede har -->
+    <!-- <string name="message_no_dish_selected_try_choosing">Ingen matrett er valgt. Prøv å velge en!
+    </string> -->
+
+    <!-- <string name="hint_add_dish_default">Legg til ny matrett...</string> -->
+
+    <!-- <string name="hint_add_your_first_dish">Legg til din første matrett!</string> -->
+
+    <!-- <string name="category_not_specified">Kategori ikke spesifisert</string> -->
+
+    <!-- <string name="toast_dish_already_exists">Denne matretten finnes allerede.</string> -->
+
+    <!-- <string name="toast_please_enter_dish_name">Vennligst skriv inn et navn på matretten.</string> -->
+
+    <!-- <string name="ingredients_not_specified">Ingredienser ikke spesifisert</string> -->
 </resources>
 
